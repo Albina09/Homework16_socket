@@ -41,7 +41,6 @@ int main(){
     if(sendto(fd, buff, sizeof(buff), 0, (struct sockaddr *)&client, size) == -1)
         errorExit("sendto");
 
-    close(new_fd);
     close(fd);
     exit(EXIT_SUCCESS);
 }

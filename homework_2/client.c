@@ -23,7 +23,7 @@ int main(){
     }
 
     serv.sin_family = AF_INET;
-    serv.sin_port = htons(9003);
+    serv.sin_port = htons(9002);
     serv.sin_addr.s_addr = htons(INADDR_ANY);
 
     len = sizeof(serv);

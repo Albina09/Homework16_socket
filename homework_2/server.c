@@ -26,7 +26,7 @@ int main(){
         errorExit("soket");
         
     serv.sin_family = AF_INET;
-    serv.sin_port = htons(9003);
+    serv.sin_port = htons(9002);
     serv.sin_addr.s_addr = htons(INADDR_ANY);
 
     if (bind(fd, (struct sockaddr *)&serv, sizeof(serv)) == -1) 
@@ -34,7 +34,8 @@ int main(){
         
     if (listen(fd, 5) == -1) 
         errorExit("listen");
-        
+    
+    len = sizeof(client);
     new_fd = accept(fd,(struct sockaddr *)&client, &len);
 
     if (recv(new_fd, buff, sizeof(buff), 0) == -1) 
@@ -47,5 +48,6 @@ int main(){
 
     close(new_fd);
     close(fd);
+
     exit(EXIT_SUCCESS);
 }
